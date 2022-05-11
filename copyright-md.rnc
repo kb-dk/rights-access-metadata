@@ -104,7 +104,9 @@ copyright.status =
     "unknown"
 
 ## 
-##       Indicates the publication status for the resource. Three (3) enumerated values enforced by the copyrightMD schema: "published", "unpublished", and "unknown".
+##       Indicates the publication status for the resource. Three (3)
+##       enumerated values enforced by the copyrightMD schema:
+##       "published", "unpublished", and "unknown".
 ##     
 publication.status =
   
