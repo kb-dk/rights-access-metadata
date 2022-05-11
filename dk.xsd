@@ -5,9 +5,11 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" ref="c:name"/>
-        <xs:element minOccurs="0" ref="c:year.started"/>
-        <xs:element minOccurs="0" ref="c:year.ended"/>
+        <xs:element minOccurs="0" ref="dk:year.started"/>
+        <xs:element minOccurs="0" ref="dk:year.ended"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="year.started" type="c:year.defined"/>
+  <xs:element name="year.ended" type="c:year.defined"/>
 </xs:schema>

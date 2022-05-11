@@ -63,8 +63,8 @@ See University of California's [solution](https://cdlib.org/groups/rights-manage
   <creator>
     <dk:creator.corporate>
       <name>Ugens nyheder</name>
-      <year.started>1910</year.started>
-      <year.ended>1920</year.ended>
+      <dk:year.started>1910</year.started>
+      <dk:year.ended>1920</year.ended>
     </dk:creator.corporate>
   </creator>
   <creator>

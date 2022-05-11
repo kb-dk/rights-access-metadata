@@ -424,7 +424,7 @@ starting_copyright =
                      "                          "
                    ]
               }?,
-              element year.started {
+              element dk:year.started {
                 year.defined
                 >> a:documentation [
                      "\x{a}" ~
@@ -442,7 +442,7 @@ starting_copyright =
                      "                          "
                    ]
               }?,
-              element year.ended {
+              element dk:year.ended {
                 year.defined
                 >> a:documentation [
                      "\x{a}" ~

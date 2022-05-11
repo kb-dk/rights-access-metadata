@@ -273,8 +273,6 @@
   <xs:element name="year.birth" type="c:year.defined"/>
   <xs:element name="year.death" type="c:year.defined"/>
   <xs:element name="creator.corporate" type="xs:string"/>
-  <xs:element name="year.started" type="c:year.defined"/>
-  <xs:element name="year.ended" type="c:year.defined"/>
   <xs:element name="rights.holder">
     <xs:annotation>
       <xs:documentation>

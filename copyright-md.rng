@@ -440,7 +440,7 @@
                       </rng:optional>
                       
                       <rng:optional>
-                        <rng:element name="year.started">
+                        <rng:element name="dk:year.started">
                           <rng:ref name="year.defined"/>
                           <a:documentation>
                             Contains the year the corporation responsible for the
@@ -458,7 +458,7 @@
                         </rng:element>
                       </rng:optional>
                       <rng:optional>
-                        <rng:element name="year.ended">
+                        <rng:element name="dk:year.ended">
                           <rng:ref name="year.defined"/>
                           <a:documentation>
                             Contains the year when the corporation responsible
