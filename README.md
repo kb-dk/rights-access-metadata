@@ -37,6 +37,10 @@ See University of California's [solution](https://cdlib.org/groups/rights-manage
 * Proposed schema [copyright-md.rng](copyright-md.rng)
   * Derived schemas [copyright-md.rnc](copyright-md.rnc) and
   * [copyright-md.xsd](copyright-md.xsd). Note [dk.xsd](dk.xsd) (W3 XML Schema wants one module per name space).
+  
+
+This is adapted [from an example](https://www.loc.gov/standards/mods/userguide/accesscondition.html#examples) I found on library of congress
+  
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
