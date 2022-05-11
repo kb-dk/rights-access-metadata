@@ -93,3 +93,8 @@ This is adapted [from an example](https://www.loc.gov/standards/mods/userguide/a
 
 </copyright>
 ```
+
+
+# Further reading
+
+https://www.getty.edu/publications/intrometadata/rights-metadata/
