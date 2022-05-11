@@ -6,4 +6,4 @@ bibliographic record, enabling scripts to automatic checks for
 accessibility.
 
 ![Descision tree](decision-tree.svg)
-<img serc="./decision-tree.svg">
+<img src="./decision-tree.svg">
