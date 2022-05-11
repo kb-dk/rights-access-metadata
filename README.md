@@ -17,7 +17,9 @@ with or without special conditions.
 The Blocking is related to  type="restriction on access"
 
 ```
-<accessCondition type="restriction on access" displayLabel="Access Status">Blokeret</accessCondition>
+<accessCondition type="restriction on access" displayLabel="Access Status">
+	Blokeret
+</accessCondition>
 ```
 
 Special conditions should be encoded as  type="use and reproduction"
