@@ -1,0 +1,134 @@
+<?xml version="1.0" standalone="no"?>
+<!-- Creator: fig2dev Version 3.2.7a -->
+<!-- CreationDate: 2022-05-11 12:57:01 -->
+<!-- Magnification: 0.693 -->
+<svg	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="84pt" height="256pt"
+	viewBox="265 258 1997 6144">
+<g fill="none">
+<!-- Line -->
+<defs>
+<clipPath id="cp0">
+	<path clip-rule="evenodd" d="M 265,258 H 2262 V 6402 H 265 z
+		M 890,1920 860,1890 890,1860 713,1883 713,1897z"/>
+</clipPath>
+</defs>
+<polyline points=" 1350,1890 720,1890" clip-path="url(#cp0)"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Forward arrow to point 720,1890 -->
+<polygon points=" 890,1860 740,1890 890,1920 860,1890 890,1860"
+	stroke="#000000" stroke-width="8px" stroke-miterlimit="8" fill="#000000"/>
+<!-- Line -->
+<defs>
+<clipPath id="cp1">
+	<path clip-rule="evenodd" d="M 265,258 H 2262 V 6402 H 265 z
+		M 890,3270 860,3240 890,3210 713,3233 713,3247z"/>
+</clipPath>
+</defs>
+<polyline points=" 1350,3240 720,3240" clip-path="url(#cp1)"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Forward arrow to point 720,3240 -->
+<polygon points=" 890,3210 740,3240 890,3270 860,3240 890,3210"
+	stroke="#000000" stroke-width="8px" stroke-miterlimit="8" fill="#000000"/>
+<!-- Line -->
+<defs>
+<clipPath id="cp2">
+	<path clip-rule="evenodd" d="M 265,258 H 2262 V 6402 H 265 z
+		M 890,4755 860,4725 890,4695 713,4718 713,4732z"/>
+</clipPath>
+</defs>
+<polyline points=" 1350,4725 720,4725" clip-path="url(#cp2)"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Forward arrow to point 720,4725 -->
+<polygon points=" 890,4695 740,4725 890,4755 860,4725 890,4695"
+	stroke="#000000" stroke-width="8px" stroke-miterlimit="8" fill="#000000"/>
+<!-- Line -->
+<rect x="1350" y="270" width="900" height="630"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Line -->
+<defs>
+<clipPath id="cp3">
+	<path clip-rule="evenodd" d="M 265,258 H 2262 V 6402 H 265 z
+		M 1830,1360 1800,1390 1770,1360 1793,1537 1807,1537z"/>
+</clipPath>
+</defs>
+<polyline points=" 1800,990 1800,1530" clip-path="url(#cp3)"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Forward arrow to point 1800,1530 -->
+<polygon points=" 1770,1360 1800,1510 1830,1360 1800,1390 1770,1360"
+	stroke="#000000" stroke-width="8px" stroke-miterlimit="8" fill="#000000"/>
+<!-- Line -->
+<polygon points=" 1800,1530 1440,1890 1800,2250 2160,1890"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Line -->
+<defs>
+<clipPath id="cp4">
+	<path clip-rule="evenodd" d="M 265,258 H 2262 V 6402 H 265 z
+		M 1830,2710 1800,2740 1770,2710 1793,2887 1807,2887z"/>
+</clipPath>
+</defs>
+<polyline points=" 1800,2340 1800,2880" clip-path="url(#cp4)"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Forward arrow to point 1800,2880 -->
+<polygon points=" 1770,2710 1800,2860 1830,2710 1800,2740 1770,2710"
+	stroke="#000000" stroke-width="8px" stroke-miterlimit="8" fill="#000000"/>
+<!-- Line -->
+<polygon points=" 1800,2835 1395,3240 1800,3645 2205,3240"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Line -->
+<polygon points=" 1800,4320 1395,4725 1800,5130 2205,4725"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Line -->
+<defs>
+<clipPath id="cp5">
+	<path clip-rule="evenodd" d="M 265,258 H 2262 V 6402 H 265 z
+		M 1830,4105 1800,4135 1770,4105 1793,4282 1807,4282z"/>
+</clipPath>
+</defs>
+<polyline points=" 1800,3735 1800,4275" clip-path="url(#cp5)"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Forward arrow to point 1800,4275 -->
+<polygon points=" 1770,4105 1800,4255 1830,4105 1800,4135 1770,4105"
+	stroke="#000000" stroke-width="8px" stroke-miterlimit="8" fill="#000000"/>
+<!-- Line -->
+<defs>
+<clipPath id="cp6">
+	<path clip-rule="evenodd" d="M 265,258 H 2262 V 6402 H 265 z
+		M 1830,5590 1800,5620 1770,5590 1793,5767 1807,5767z"/>
+</clipPath>
+</defs>
+<polyline points=" 1800,5220 1800,5760" clip-path="url(#cp6)"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Forward arrow to point 1800,5760 -->
+<polygon points=" 1770,5590 1800,5740 1830,5590 1800,5620 1770,5590"
+	stroke="#000000" stroke-width="8px" stroke-miterlimit="8" fill="#000000"/>
+<!-- Line -->
+<rect x="1350" y="5760" width="900" height="630"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Text -->
+<text xml:space="preserve" x="450" y="1980" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="middle">Yes</text>
+<!-- Text -->
+<text xml:space="preserve" x="450" y="3330" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="middle">Yes</text>
+<!-- Text -->
+<text xml:space="preserve" x="2070" y="2610" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="middle">No</text>
+<!-- Text -->
+<text xml:space="preserve" x="2070" y="3960" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="middle">No</text>
+<!-- Text -->
+<text xml:space="preserve" x="450" y="4815" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="middle">Yes</text>
+<!-- Text -->
+<text xml:space="preserve" x="2070" y="5445" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="middle">No</text>
+<!-- Text -->
+<text xml:space="preserve" x="1800" y="630" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="middle">Resource</text>
+<!-- Text -->
+<text xml:space="preserve" x="1800" y="1935" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="middle">Block</text>
+<!-- Text -->
+<text xml:space="preserve" x="1800" y="3240" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="96" text-anchor="middle">Conditions</text>
+<!-- Text -->
+<text xml:space="preserve" x="1800" y="4770" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="96" text-anchor="middle">Copyright</text>
+<!-- Text -->
+<text xml:space="preserve" x="1800" y="6255" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="middle">Resource</text>
+<!-- Text -->
+<text xml:space="preserve" x="1800" y="6030" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="middle">PD</text>
+</g>
+</svg>
