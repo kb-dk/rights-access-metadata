@@ -1,0 +1,584 @@
+default namespace = "http://www.cdlib.org/inside/diglib/copyrightMD"
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dk = "http://id.kb.dk/dk-corporate-creator"
+namespace rng = "http://relaxng.org/ns/structure/1.0"
+
+a:documentation [
+  "\x{a}" ~
+  "    Schema for expression of copyright information, with some Danish extensions.\x{a}" ~
+  "  "
+]
+# set up the types required by the schema
+
+## 
+##       Data elements that are in the form of a date are defined as
+##       instances of the year.definition. The year.definition is a
+##       simple string with an attribute, year.type. year.type allows the
+##       coding of the level of precision of the year, such as "exact" or
+##       "approximate" or "unknown".
+##     
+year.defined =
+  xsd:string,
+  
+  ## 
+  ##           Provides additional information about the year encoded.
+  ##           Three (3) enumerated values enforced by the copyrightMD schema:
+  ##           "exact", "approximate", and "unknown".
+  ##         
+  attribute year.type {
+    
+    ## 
+    ##             Year is known.
+    ##           
+    "exact"
+    | 
+      ## 
+      ##             Year is unknown, but it is possible for a reasonable
+      ##             estimation to be given based on additional available evidence.
+      ##           
+      "approximate"
+    | 
+      ## 
+      ##             Year is unknown and it is impossible to give a reasonable
+      ##             estimate. This value should only rarely be used, and
+      ##             institutions are encouraged to supply an approximate date for
+      ##             undated materials whenever feasible.
+      ##           
+      "unknown"
+  }?
+
+## 
+##       The country type is used for the country of publication and for
+##       the country of creation. It allows the user to input either a
+##       country name, or an ISO 3166-1 alpha 2-letter country code (as
+##       an attribute), or both.
+##     
+country.defined =
+  xsd:string,
+  attribute iso.code {
+    xsd:string
+    >> a:documentation [
+         "\x{a}" ~
+         "          Specifies a standardized code for the name of the country of\x{a}" ~
+         "          creation or publication. Data values should be taken from\x{a}" ~
+         "          the ISO 3166-1 alpha 2-letter code list.\x{a}" ~
+         "        "
+       ]
+  }?
+
+## 
+##       Indicates copyright status for the resource. Six (6) enumerated
+##       values enforced by the copyrightMD schema: "copyrighted", "pd",
+##       "pd_usfed", "pd_holder", "pd_expired", and "unknown".
+##     
+copyright.status =
+  
+  ## 
+  ##         Under copyright.
+  ##       
+  "copyrighted"
+  | 
+    ## 
+    ##         Public domain: No further information.
+    ##       
+    "pd"
+  | 
+    ## 
+    ##         Public domain: US Federal document.
+    ##       
+    "pd_usfed"
+  | 
+    ## 
+    ##         Public domain: Item dedicated to the public domain by the rights holder.
+    ##       
+    "pd_holder"
+  | 
+    ## 
+    ##         Public domain: Item in the public domain because of expiration of copyright based on U.S. law.
+    ##       
+    "pd_expired"
+  | 
+    ## 
+    ##         Copyright status of the resource is unknown.
+    ##       
+    "unknown"
+
+## 
+##       Indicates the publication status for the resource. Three (3) enumerated values enforced by the copyrightMD schema: "published", "unpublished", and "unknown".
+##     
+publication.status =
+  
+  ## 
+  ##         Resource is published.
+  ##       
+  "published"
+  | 
+    ## 
+    ##         Resource is unpublished.
+    ##       
+    "unpublished"
+  | 
+    ## 
+    ##         Publication status of the resource is unknown.
+    ##       
+    "unknown"
+start |= starting_copyright
+starting_copyright =
+  
+  ## 
+  ##         Wrapper element for copyright-related information for the
+  ##         resource. Data values must be encoded either in attributes or
+  ##         subelements.
+  ##       
+  element copyright {
+    (
+     ## 
+     ##                 Wrapper element for publication information regarding the
+     ##                 resource. Use only for published works. Data values must be
+     ##                 encoded in subelements. When <publication> is used, also
+     ##                 use the following encoding: <copyright
+     ##                 publication.status="published">.
+     ##               
+     element publication {
+       (element country.publication {
+          country.defined
+          >> a:documentation [
+               "\x{a}" ~
+               "                        Contains the name of the country in which the resource was\x{a}" ~
+               "                        published. Institutions are encouraged to use a standard\x{a}" ~
+               "                        thesaurus for the form of name supplied. Input the data\x{a}" ~
+               "                        directly within this element. Use the available attribute,\x{a}" ~
+               "                        if desired, to encode a machine-readable standard code for\x{a}" ~
+               "                        the name of the country. This element can also be used as an\x{a}" ~
+               "                        empty element, with data provided only as an attribute\x{a}" ~
+               "                        value.\x{a}" ~
+               "                      "
+             ]
+        }?
+        | element year.copyright {
+            year.defined
+            >> a:documentation [
+                 "\x{a}" ~
+                 "                        Contains the year the resource was\x{a}" ~
+                 "                        copyrighted, typically based on a copyright\x{a}" ~
+                 "                        notice on the resource itself. The resource\x{a}" ~
+                 "                        does not have to have been registered with the\x{a}" ~
+                 "                        copyright office. Institutions should not\x{a}" ~
+                 "                        approximate copyright year if it does not\x{a}" ~
+                 "                        appear on the work, or in some reliable\x{a}" ~
+                 "                        alternate source for this information. Use the\x{a}" ~
+                 "                        standardized form of YYYY, and do not include\x{a}" ~
+                 "                        month or day information. Input the data\x{a}" ~
+                 "                        directly within this element. Use the\x{a}" ~
+                 "                        available attribute, if desired, to supply\x{a}" ~
+                 "                        additional information about the copyright\x{a}" ~
+                 "                        year encoded. This element can also be used as\x{a}" ~
+                 "                        an empty element, with data provided only as\x{a}" ~
+                 "                        an attribute value, when the copyright year is\x{a}" ~
+                 "                        unknown or no attempt has been made by the\x{a}" ~
+                 "                        institution to encode this information.\x{a}" ~
+                 "                      "
+               ]
+          }?
+        | element year.renewal {
+            year.defined
+            >> a:documentation [
+                 "\x{a}" ~
+                 "                        Contains the year the copyright for the\x{a}" ~
+                 "                        resource was renewed. Few items are likely to\x{a}" ~
+                 "                        contain a copyright renewal notice. This will\x{a}" ~
+                 "                        only pertain to works that were registered\x{a}" ~
+                 "                        with the copyright office and subsequently\x{a}" ~
+                 "                        renewed. Such works will have a copyright date\x{a}" ~
+                 "                        before 1964 (i.e., up to and including\x{a}" ~
+                 "                        1963). Institutions should not approximate the\x{a}" ~
+                 "                        year of copyright renewal if it does not\x{a}" ~
+                 "                        appear on the work, or in some reliable\x{a}" ~
+                 "                        alternate source for this information. Use the\x{a}" ~
+                 "                        standardized form of YYYY, and do not include\x{a}" ~
+                 "                        month or day information. Input the data\x{a}" ~
+                 "                        directly within this element. Use the\x{a}" ~
+                 "                        available attribute, if desired, to supply\x{a}" ~
+                 "                        additional information about the copyright\x{a}" ~
+                 "                        year encoded. This element can also be used as\x{a}" ~
+                 "                        an empty element, with data provided only as\x{a}" ~
+                 "                        an attribute value, when the year of copyright\x{a}" ~
+                 "                        renewal is unknown or no attempt has been made\x{a}" ~
+                 "                        by the institution to encode this information.\x{a}" ~
+                 "                      "
+               ]
+          }?
+        | element year.publication {
+            year.defined
+            >> a:documentation [
+                 "\x{a}" ~
+                 "                        Contains the year the resource was published,\x{a}" ~
+                 "                        typically based on information available on\x{a}" ~
+                 "                        the resource itself. Use the standardized form\x{a}" ~
+                 "                        of YYYY, and do not include month or day\x{a}" ~
+                 "                        information. Input the data directly within\x{a}" ~
+                 "                        this element. Use the available attribute, if\x{a}" ~
+                 "                        desired, to supply additional information\x{a}" ~
+                 "                        about the publication year encoded. This\x{a}" ~
+                 "                        element can also be used as an empty element,\x{a}" ~
+                 "                        with data provided only as an attribute value,\x{a}" ~
+                 "                        when the publication year is unknown or no\x{a}" ~
+                 "                        attempt has been made by the institution to\x{a}" ~
+                 "                        encode this information.\x{a}" ~
+                 "                      "
+               ]
+          }?
+        | element publisher {
+            xsd:string
+            >> a:documentation [
+                 "\x{a}" ~
+                 "                        Contains the name of the publisher of the\x{a}" ~
+                 "                        resource. Institutions are encouraged to use\x{a}" ~
+                 "                        and document a standardized approach to\x{a}" ~
+                 "                        formatting names in this element. Input the\x{a}" ~
+                 "                        data directly within this element.\x{a}" ~
+                 "                      "
+               ]
+          }?
+        | element note {
+            xsd:string
+            >> a:documentation [
+                 "\x{a}" ~
+                 "                        Contains a general note relating to the\x{a}" ~
+                 "                        publication of the resource. Input the data\x{a}" ~
+                 "                        directly within this element. Use this element\x{a}" ~
+                 "                        only for information that cannot be\x{a}" ~
+                 "                        accommodated within the parent element.\x{a}" ~
+                 "                      "
+               ]
+          }*)*
+     }?
+     | 
+       ## 
+       ##                 Wrapper element for information about the creation of
+       ##                 the resource. Unpublished resources are evaluated for
+       ##                 copyright status based on the year of creation and the
+       ##                 country in which creation occurred. Use primarily for
+       ##                 unpublished resources, but can also be used for
+       ##                 published resources if creation information is known
+       ##                 and significant to the copyright analysis. Data values
+       ##                 must be encoded in subelements.
+       ##               
+       element creation {
+         element year.creation {
+           year.defined
+           >> a:documentation [
+                "\x{a}" ~
+                "                      Contains the year the resource was created. This\x{a}" ~
+                "                      is crucial information for making a copyright\x{a}" ~
+                "                      determination for an unpublished resource\x{a}" ~
+                "                      created by a corporate entity, or when the death\x{a}" ~
+                "                      date of an individual responsible for the\x{a}" ~
+                "                      creation of the resource is unknown. Use the\x{a}" ~
+                "                      standardized form of YYYY, and do not include\x{a}" ~
+                "                      month or day information. Input the data\x{a}" ~
+                "                      directly within this element. Use the available\x{a}" ~
+                "                      attribute, if desired, to supply additional\x{a}" ~
+                "                      information about the year of creation\x{a}" ~
+                "                      encoded. This element can also be used as an\x{a}" ~
+                "                      empty element, with data provided only as an\x{a}" ~
+                "                      attribute value, when the year of creation is\x{a}" ~
+                "                      unknown or no attempt has been made by the\x{a}" ~
+                "                      institution to encode this information.\x{a}" ~
+                "                    "
+              ]
+         }?
+         & element country.creation {
+             country.defined
+             >> a:documentation [
+                  "\x{a}" ~
+                  "                      Contains the name of the country in which the\x{a}" ~
+                  "                      resource was created. Institutions are\x{a}" ~
+                  "                      encouraged to use a standard thesaurus for the\x{a}" ~
+                  "                      form of name supplied.  Input the data directly\x{a}" ~
+                  "                      within this element. Use the available\x{a}" ~
+                  "                      attribute, if desired, to encode a\x{a}" ~
+                  "                      machine-readable standard code for the name of\x{a}" ~
+                  "                      the country. This element can also be used as an\x{a}" ~
+                  "                      empty element, with data provided only as an\x{a}" ~
+                  "                      attribute value.\x{a}" ~
+                  "                    "
+                ]
+           }?
+       }?
+     | 
+       ## 
+       ##                 Wrapper element for information about the creator(s) of the resource. Use primarily for unpublished resources, but can also be used for published resources if creation information is known and significant to the copyright analysis. Data values must be encoded in subelements.
+       ##               
+       element creator {
+         (
+          ## 
+          ##                         Wrapper element for information regarding an
+          ##                         individual responsible for creating the
+          ##                         resource. For unpublished resources created by
+          ##                         an individual (or individuals), information
+          ##                         regarding her/his death date is critical for
+          ##                         evaluating copyright status. Families, though
+          ##                         viable creators of resources, are not legally
+          ##                         recognized as such in terms of copyright
+          ##                         analysis. If a family name is the only name
+          ##                         available as a creator of a resource, treat as
+          ##                         an unknown creator in terms of copyright
+          ##                         metadata and provide relevant information
+          ##                         about the family in the descriptive metadata
+          ##                         for the resource. Data values must be encoded
+          ##                         in subelements.
+          ##                       
+          element creator.person {
+            element name {
+              xsd:string
+              >> a:documentation [
+                   "\x{a}" ~
+                   "                              Contains the name of an individual\x{a}" ~
+                   "                              responsible for creating the\x{a}" ~
+                   "                              resource. Institutions are encouraged to\x{a}" ~
+                   "                              use and document a standardized approach\x{a}" ~
+                   "                              to formatting names in this\x{a}" ~
+                   "                              element. Input the data directly within\x{a}" ~
+                   "                              this element.\x{a}" ~
+                   "                            "
+                 ]
+            }?
+            & element year.birth {
+                year.defined
+                >> a:documentation [
+                     "\x{a}" ~
+                     "                              Contains the year of birth of an\x{a}" ~
+                     "                              individual responsible for the creation\x{a}" ~
+                     "                              of the resource. Use the standardized\x{a}" ~
+                     "                              form of YYYY, and do not include the\x{a}" ~
+                     "                              month or day of birth. Input the data\x{a}" ~
+                     "                              directly within this element. Use the\x{a}" ~
+                     "                              available attribute, if desired, to\x{a}" ~
+                     "                              supply additional information about the\x{a}" ~
+                     "                              birth year encoded, especially if the\x{a}" ~
+                     "                              year is an approximation. This element\x{a}" ~
+                     "                              can also be used as an empty element,\x{a}" ~
+                     "                              with data provided only as an attribute\x{a}" ~
+                     "                              value, when the birth year is unknown or\x{a}" ~
+                     "                              no attempt has been made by the\x{a}" ~
+                     "                              institution to encode this information.\x{a}" ~
+                     "                            "
+                   ]
+              }?
+            & element year.death {
+                year.defined
+                >> a:documentation [
+                     "\x{a}" ~
+                     "                              Contains the year of death of an\x{a}" ~
+                     "                              individual responsible for the creation\x{a}" ~
+                     "                              of the resource.  This is crucial\x{a}" ~
+                     "                              information for making a copyright\x{a}" ~
+                     "                              determination for an unpublished\x{a}" ~
+                     "                              resource created by an individual. Use\x{a}" ~
+                     "                              the standardized form of YYYY, and do\x{a}" ~
+                     "                              not include the month or day of\x{a}" ~
+                     "                              death. Input the data directly within\x{a}" ~
+                     "                              this element. Use the available\x{a}" ~
+                     "                              attribute, if desired, to supply\x{a}" ~
+                     "                              additional information about the death\x{a}" ~
+                     "                              year encoded, especially if the year is\x{a}" ~
+                     "                              an approximation. This element can also\x{a}" ~
+                     "                              be used as an empty element, with data\x{a}" ~
+                     "                              provided only as an attribute value,\x{a}" ~
+                     "                              when the death year is unknown or no\x{a}" ~
+                     "                              attempt has been made by the institution\x{a}" ~
+                     "                              to encode this information.\x{a}" ~
+                     "                            "
+                   ]
+              }?
+          }*
+          | element creator.corporate {
+              xsd:string
+              >> a:documentation [
+                   "\x{a}" ~
+                   "                        Contains the name of a corporate entity\x{a}" ~
+                   "                        responsible for creating the\x{a}" ~
+                   "                        resource. Institutions are encouraged to use\x{a}" ~
+                   "                        and document a standardized approach to\x{a}" ~
+                   "                        formatting names in this element. Input the\x{a}" ~
+                   "                        data directly within this element. See\x{a}" ~
+                   "                        guidelines under <creator.person> for\x{a}" ~
+                   "                        information on families as creators.\x{a}" ~
+                   "                      "
+                 ]
+            }*
+          | element dk:creator.corporate {
+              element name {
+                xsd:string
+                >> a:documentation [
+                     "\x{a}" ~
+                     "                            Contains the name of the corporate entity\x{a}" ~
+                     "                            responsible for creating the resource.\x{a}" ~
+                     "                            Institutions are encouraged to use and\x{a}" ~
+                     "                            document a standardized approach to\x{a}" ~
+                     "                            formatting names in this element. Input\x{a}" ~
+                     "                            the data directly within this element.\x{a}" ~
+                     "                          "
+                   ]
+              }?,
+              element year.started {
+                year.defined
+                >> a:documentation [
+                     "\x{a}" ~
+                     "                            Contains the year the corporation responsible for the\x{a}" ~
+                     "                            creation of the resource was started. Use the\x{a}" ~
+                     "                            standardized form of YYYY, and do not include the month\x{a}" ~
+                     "                            or day of birth. Input the data directly within this\x{a}" ~
+                     "                            element. Use the available attribute, if desired, to\x{a}" ~
+                     "                            supply additional information about the birth year\x{a}" ~
+                     "                            encoded, especially if the year is an\x{a}" ~
+                     "                            approximation. This element can also be used as an empty\x{a}" ~
+                     "                            element, with data provided only as an attribute value,\x{a}" ~
+                     "                            when the birth year is unknown or no attempt has been\x{a}" ~
+                     "                            made by the institution to encode this information.\x{a}" ~
+                     "                          "
+                   ]
+              }?,
+              element year.ended {
+                year.defined
+                >> a:documentation [
+                     "\x{a}" ~
+                     "                            Contains the year when the corporation responsible\x{a}" ~
+                     "                            for the creation of the resource was closed.  This\x{a}" ~
+                     "                            is crucial information for making a copyright\x{a}" ~
+                     "                            determination for an unpublished resource created by\x{a}" ~
+                     "                            an individual. Use the standardized form of YYYY,\x{a}" ~
+                     "                            and do not include the month or day of death. Input\x{a}" ~
+                     "                            the data directly within this element. Use the\x{a}" ~
+                     "                            available attribute, if desired, to supply\x{a}" ~
+                     "                            additional information about the death year encoded,\x{a}" ~
+                     "                            especially if the year is an approximation. This\x{a}" ~
+                     "                            element can also be used as an empty element, with\x{a}" ~
+                     "                            data provided only as an attribute value, when the\x{a}" ~
+                     "                            death year is unknown or no attempt has been made by\x{a}" ~
+                     "                            the institution to encode this information.\x{a}" ~
+                     "                          "
+                   ]
+              }?
+            }*
+          | element note {
+              xsd:string
+              >> a:documentation [
+                   "\x{a}" ~
+                   "                        Contains a general note relating to one or more\x{a}" ~
+                   "                        creators. Input the data directly within this\x{a}" ~
+                   "                        element. Use this element only for information that\x{a}" ~
+                   "                        cannot be accommodated within the parent element.\x{a}" ~
+                   "                      "
+                 ]
+            }*)*
+       }?
+     | 
+       ## 
+       ##                 Wrapper element for information about the rights holder for
+       ##                 the resource and contact information for the rights holder or
+       ##                 rights holder's designee. Use to direct users to the
+       ##                 appropriate point for questions about rights and permissions
+       ##                 related to the resource. Data values must be encoded in
+       ##                 subelements.
+       ##               
+       element rights.holder {
+         (element name {
+            xsd:string
+            >> a:documentation [
+                 "\x{a}" ~
+                 "                        Contains the name of an individual or corporate entity\x{a}" ~
+                 "                        identified as copyright holder for the\x{a}" ~
+                 "                        resource. Institutions are encouraged to use and\x{a}" ~
+                 "                        document a standardized approach to formatting names\x{a}" ~
+                 "                        in this element. Input the data directly within this\x{a}" ~
+                 "                        element.\x{a}" ~
+                 "                      "
+               ]
+          }*
+          | element contact {
+              xsd:string
+              >> a:documentation [
+                   "\x{a}" ~
+                   "                        Contains contact information regarding the rights\x{a}" ~
+                   "                        holder or the rights holder's designated\x{a}" ~
+                   "                        agent. Provide relevant contact information, when\x{a}" ~
+                   "                        available and not confidential, for the person or\x{a}" ~
+                   "                        institution to whom a user should address questions\x{a}" ~
+                   "                        regarding usage of or permissions regarding the\x{a}" ~
+                   "                        resource. Input the data directly within this element.\x{a}" ~
+                   "                      "
+                 ]
+            }*
+          | element note {
+              xsd:string
+              >> a:documentation [
+                   " Contains a general note\x{a}" ~
+                   "                      relating to the rights holder(s). Input the data directly\x{a}" ~
+                   "                      within this element. Use this element only for information\x{a}" ~
+                   "                      that cannot be accommodated within the parent element.\x{a}" ~
+                   "                      "
+                 ]
+            }*)*
+       }?
+     | 
+       ## 
+       ##                 Wrapper element for information relating to services that
+       ##                 might be offered relating to the resource, such as providing
+       ##                 copies. Data values must be encoded in subelements.
+       ##               
+       element services {
+         (element contact {
+            empty
+            >> a:documentation [
+                 "\x{a}" ~
+                 "                        Contains contact information regarding the provider of\x{a}" ~
+                 "                        services related to the resource. Use to specify the\x{a}" ~
+                 "                        service(s) available and contact information for the person\x{a}" ~
+                 "                        or institution providing the service(s). Input the data\x{a}" ~
+                 "                        directly within this element.\x{a}" ~
+                 "                      "
+               ]
+          }*
+          | element note {
+              xsd:string
+              >> a:documentation [
+                   "\x{a}" ~
+                   "                        Contains a general note relating to services available\x{a}" ~
+                   "                        pertaining to the resource. Input the data directly\x{a}" ~
+                   "                        within this element. Use this element only for\x{a}" ~
+                   "                        information that cannot be accommodated within the\x{a}" ~
+                   "                        parent element.\x{a}" ~
+                   "                      "
+                 ]
+            }*)*
+       }*
+     | element notice {
+         xsd:string
+         >> a:documentation [
+              "\x{a}" ~
+              "                Contains the copyright notice as it appears on the\x{a}" ~
+              "                resource. Transcribe the copyright notice exactly as it appears on\x{a}" ~
+              "                the resource. Input the data directly within this element.\x{a}" ~
+              "              "
+            ]
+       }?
+     | element general.note {
+         xsd:string
+         >> a:documentation [
+              "\x{a}" ~
+              "                Contains a general note regarding general information relating\x{a}" ~
+              "                to copyright for the resource, or to the information provided\x{a}" ~
+              "                in the record. Use this element only for information that\x{a}" ~
+              "                cannot be accommodated in a more specific copyrightMD\x{a}" ~
+              "                element. Input the data directly within this element. This is\x{a}" ~
+              "                the appropriate place to encode a general boilerplate\x{a}" ~
+              "                statement regarding copyright that the institution wishes to\x{a}" ~
+              "                appear with the metadata about the resource.\x{a}" ~
+              "              "
+            ]
+       }*)*,
+    attribute copyright.status { copyright.status },
+    attribute publication.status { publication.status }
+  }
