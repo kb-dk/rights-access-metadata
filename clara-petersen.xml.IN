@@ -121,8 +121,11 @@
   -->
   
   <md:subject xml:lang="da">
-    <md:name>
-      <md:namePart>Hansen, Chr. D. A. (1843-1916) apoteker</md:namePart>
+    <md:name type="personal">
+      <md:namePart type="family">Hansen</md:namePart>
+      <md:namePart type="given">Chr. D. A.</md:namePart>
+      <md:namePart type="date">1843-1916</md:namePart>
+      <md:namePart type="termsOfAddress">apoteker</md:namePart>
     </md:name>
   </md:subject>
 
@@ -150,11 +153,6 @@
   <md:identifier type="local">nap_1207.tif</md:identifier>
   <md:identifier type="domsGuid">Uid:dk:kb:doms:2007-01/6dd47410-8585-11e1-a235-0016357f605f</md:identifier>
 
-  <md:accessCondition>
-  Ugens nyheder	1910	1920	dansk ugeavis	ophav materiale
-  </md:accessCondition>
-
-  
   <md:accessCondition displayLabel="Copyright"
   xml:lang="da">Materialet er muligvis beskyttet af
   ophavsret</md:accessCondition>
@@ -162,7 +160,6 @@
   <md:accessCondition>
     <xi:include href="clara-petersen-copyright.xml"/>
   </md:accessCondition>
-  
 
   <!--
       I cannot recollect what we meant by "Copyright Applied"
