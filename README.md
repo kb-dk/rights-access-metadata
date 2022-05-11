@@ -28,4 +28,6 @@ Special conditions should be encoded as  type="use and reproduction"
 
 # Copyright
 
-
+I have modified the CopyrightMD rights management schema such that
+corporate bodies can be rights holders and their rights might expire
+exactly like for individuals 70 years after the entity was closed.
