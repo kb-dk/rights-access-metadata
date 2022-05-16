@@ -1,15 +1,20 @@
 
 # Encoding rights management data: A preliminary test
 
-This if for finding a way to encode rights management data in a
+This is for finding a way to encode rights management data in a
 bibliographic record, enabling scripts to automatic checks for
 accessibility.
+
+The note gives examples how to encode the data exported from
+Cumulus in a way that enables preservation and discovery systems to
+deduce what they can or cannot do when it comes to presentation and
+licensing.
 
 The metadata I play with is for [a portrait made by Clara Petersen](./clara-petersen.xml)
 
 ![Descision tree](decision-tree.svg)
 
-# Restriction and Use
+## Restriction and Use
 
 I have three steps in the decision if a resource should be published
 with or without special conditions.
@@ -28,7 +33,7 @@ Special conditions should be encoded as  type="use and reproduction"
 <accessCondition type="use and reproduction">In Copyright</accessCondition>
 ```
 
-# Copyright
+## Copyright
 
 I have modified the CopyrightMD rights management schema such that
 corporate bodies can be rights holders and their rights might expire
@@ -94,7 +99,49 @@ This is adapted [from an example](https://www.loc.gov/standards/mods/userguide/a
 </copyright>
 ```
 
+## How to deduce whether an item is free
 
-# Further reading
+I have not made a stringent breakdown of the possible combinations of 
+
+* current date
+* death of creator (or end of a corporate one)
+* publication date
+
+Running the script [`is-there-copyright.xsl`](is-there-copyright.xsl) for different values of
+this_year make the kinds of calculations which is needed. This can be
+implemented in any language supporting XPath version 2 or better.
+
+```
+java -jar ~/saxon/saxon9he.jar clara-petersen.xml is-there-copyright.xsl this_year=2022
+java -jar ~/saxon/saxon9he.jar clara-petersen.xml is-there-copyright.xsl this_year=2030
+java -jar ~/saxon/saxon9he.jar clara-petersen.xml is-there-copyright.xsl this_year=2050
+```
+
+### 2022
+
+The three years would lead to:
+
+The creator, Clara, died at 1960.
+This is Anno Domino 2022
+Since  this_year - created = 62 is less than 75 it is not OK 
+
+When we don't known the year when the creator died, we could reason as follows: The portrait was made 1920  this_year - created = 2022 - 1920 = 102, which isn't safe. Clara could have survived long enough for someone alive to hold the copyright.
+
+### 2030
+
+The creator, Clara, died at 1960.
+This is Anno Domino 2030
+Since  this_year - created = 70 is less than 75 it is not OK 
+
+When we don't known the year when the creator died, we could reason as follows: The portrait was made 1920  this_year - created = 2030 - 1920 = 110, which isn't safe. Clara could have survived long enough for someone alive to hold the copyright
+
+### 2050
+
+The creator, Clara, died at 1960.
+This is Anno Domino 2050
+
+Since  90 is more than 75 it is OK 
+
+## Further reading
 
 https://www.getty.edu/publications/intrometadata/rights-metadata/

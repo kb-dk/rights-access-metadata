@@ -30,18 +30,17 @@
         name="free_after_years" select="number('75')"/>
     
 
-The creator, <xsl:value-of select="$creator_name"/>, died at <xsl:value-of select="$creator_dead"/>
-<xsl:choose>
-<xsl:when test="$this_year - $creator_dead &gt; $free_after_years">
-Since  <xsl:value-of select="$this_year - $creator_dead"/> is more than <xsl:value-of select="$free_after_years"/> it is OK
-</xsl:when>
-<xsl:otherwise>
-<xsl:text>
-The portrait was made </xsl:text> <xsl:value-of select="$created"/> <xsl:text> </xsl:text>
-      this_year - created = <xsl:value-of select="$this_year"/> - <xsl:value-of select="$created"/> = <xsl:value-of select="$this_year - $created"/>
-<xsl:text>
+The creator, <xsl:value-of select="$creator_name"/>, died at <xsl:value-of select="$creator_dead"/><xsl:text>.
+This is Anno Domino </xsl:text> <xsl:value-of select="$this_year"/> <xsl:text>
 </xsl:text>
-which <xsl:choose>
+<xsl:choose>
+
+<xsl:when test="$this_year - $creator_dead &gt; $free_after_years">
+Since  <xsl:value-of select="$this_year - $creator_dead"/> is more than <xsl:value-of select="$free_after_years"/> it is OK </xsl:when>
+
+<xsl:otherwise>Since  this_year - created = <xsl:value-of select="$this_year - $creator_dead"/> is less than <xsl:value-of select="$free_after_years"/> it is not OK <xsl:text>
+
+When we don't known the year when the creator died, we could reason as follows: The portrait was made </xsl:text> <xsl:value-of select="$created"/> <xsl:text> </xsl:text> this_year - created = <xsl:value-of select="$this_year"/> - <xsl:value-of select="$created"/> = <xsl:value-of select="$this_year - $created"/><xsl:text>, </xsl:text>which <xsl:choose>
 <xsl:when test="$this_year - $created &gt; 140">is safe. Clara did not survive to her 140th birtday</xsl:when>
 <xsl:otherwise>isn't safe. Clara could have survived long enough for someone alive to hold the copyright.</xsl:otherwise>
 </xsl:choose>
