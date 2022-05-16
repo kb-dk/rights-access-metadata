@@ -117,9 +117,9 @@ java -jar ~/saxon/saxon9he.jar clara-petersen.xml is-there-copyright.xsl this_ye
 java -jar ~/saxon/saxon9he.jar clara-petersen.xml is-there-copyright.xsl this_year=2050
 ```
 
-### 2022
-
 The three years would lead to:
+
+### 2022
 
 The creator, Clara, died at 1960.
 This is Anno Domino 2022
