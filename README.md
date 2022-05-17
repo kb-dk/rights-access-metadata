@@ -33,6 +33,10 @@ Special conditions should be encoded as  type="use and reproduction"
 <accessCondition type="use and reproduction">In Copyright</accessCondition>
 ```
 
+I haven't studied "Restriction" and "Use" vocabularies but I just
+cannot even imagine anything requiring extensive markup. I.e., I
+foresee a termlist for each these aspects, not much more.
+
 ## Copyright
 
 I have modified the CopyrightMD rights management schema such that
