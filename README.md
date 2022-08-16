@@ -82,8 +82,8 @@ I found on library of congress
   <creator>
     <dk:creator.corporate>
       <name>Ugens nyheder</name>
-      <dk:year.started>1910</year.started>
-      <dk:year.ended>1920</year.ended>
+      <dk:year.started>1910</dk:year.started>
+      <dk:year.ended>1920</dk:year.ended>
     </dk:creator.corporate>
   </creator>
   <creator>
@@ -106,6 +106,22 @@ I found on library of congress
 
 </copyright>
 ```
+
+### Validation
+
+You can validate these using RelaxNg or W3C Schema
+
+```
+xmllint --relaxng copyright-md.rng clara-petersen-copyright.xml
+xmllint --schema dk.xsd clara-petersen-copyright.xml
+```
+
+Please note that xsi:schemaLocation isn't defined in the relaxng
+schema, so there will be one error in the first validation.
+
+The MODS document always validate regardless of the validity of the
+copyright-md schemas, because the
+`<accessCondition>...</accessCondition>` element permits any extensions.
 
 ## How to deduce whether an item is free
 
