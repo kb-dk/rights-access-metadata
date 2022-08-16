@@ -23,7 +23,7 @@ The Blocking is related to  type="restriction on access"
 
 ```
 <accessCondition type="restriction on access" displayLabel="Access Status">
-	Blokeret
+    Blokeret
 </accessCondition>
 ```
 
