@@ -10,7 +10,9 @@ Cumulus in a way that enables preservation and discovery systems to
 deduce what they can or cannot do when it comes to presentation and
 licensing.
 
-The metadata I play with is for [a portrait made by Clara Petersen](./clara-petersen.xml)
+The metadata I play is in [MODS
+format](https://www.loc.gov/standards/mods/userguide/generalapp.html),
+and the record is for [a portrait made by Clara Petersen](./clara-petersen.xml)
 
 ![Descision tree](decision-tree.svg)
 
