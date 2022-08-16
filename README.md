@@ -5,7 +5,7 @@ This is for finding a way to encode rights management data in a
 bibliographic record, enabling scripts to do automatic checks for
 accessibility.
 
-This note gives examples how to encode the data exported from
+This note gives examples how to encode the data exported from image database
 Cumulus in a way that enables preservation and discovery systems to
 deduce what they can or cannot do when it comes to presentation and
 licensing.
