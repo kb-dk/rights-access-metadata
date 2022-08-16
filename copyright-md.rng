@@ -131,6 +131,9 @@
         resource. Data values must be encoded either in attributes or
         subelements.
       </a:documentation>
+      <rng:attribute name="xsi:schemaLocation">
+        <rng:data type="string"/>
+      </rng:attribute>
       <rng:zeroOrMore>
         <rng:choice>
           <rng:optional>

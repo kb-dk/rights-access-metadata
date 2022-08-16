@@ -21,6 +21,14 @@
     <md:title>Chr. D. A. Hansen</md:title>
   </md:titleInfo>
 
+  <md:name type="corporate">
+    <md:namePart>Ugens Nyheder</md:namePart>
+    <md:namePart type="date">1919/1920</md:namePart>
+    <md:role>
+      <md:roleTerm type="code" authority="marcrelator">cre</md:roleTerm>
+    </md:role>
+  </md:name>
+  
   <md:name xml:lang="da" type="personal">
     <md:namePart type="family">Petersen</md:namePart>
     <md:namePart type="given">Clara</md:namePart>
@@ -37,6 +45,8 @@
          rights management. -->
 
     <!-- strict lifespan data is below in the <accessCondition> ... </accessCondition> -->
+
+    <md:affiliation>Ugens Nyheder</md:affiliation>
     
     <md:namePart type="date">1890-1960</md:namePart>
 
@@ -78,7 +88,6 @@
        doesn't include event. but we had to put it somewhere. The
        events are mainly used in the cartoon collection.
   -->
-  <md:relatedItem type="event"/>
   
   <md:subject authority="lcsh" valueURI="http://id.loc.gov/authorities/subjects/sh85105182.html#concept"/>
 

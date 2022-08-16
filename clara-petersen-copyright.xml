@@ -17,16 +17,16 @@
        unknown
   -->
   
+
   <cdl:creation>
     <cdl:year.creation year.type="approximate">1920</cdl:year.creation>
     <cdl:country.creation iso.code="dk">Danmark</cdl:country.creation>
   </cdl:creation>
   <cdl:creator>
-    <dk:creator.corporate   xsi:schemaLocation="http://id.kb.dk/dk-corporate-creator https://raw.githubusercontent.com/kb-dk/rights-access-metadata/master/dk.xsd"
->
+    <dk:creator.corporate>
       <cdl:name>Ugens nyheder</cdl:name>
-      <cdl:year.started>1910</cdl:year.started>
-      <cdl:year.ended>1920</cdl:year.ended>
+      <dk:year.started>1910</dk:year.started>
+      <dk:year.ended>1920</dk:year.ended>
     </dk:creator.corporate>
   </cdl:creator>
   <cdl:creator>
