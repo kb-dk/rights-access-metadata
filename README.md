@@ -2,10 +2,10 @@
 # Encoding rights management data: A preliminary test
 
 This is for finding a way to encode rights management data in a
-bibliographic record, enabling scripts to automatic checks for
+bibliographic record, enabling scripts to do automatic checks for
 accessibility.
 
-The note gives examples how to encode the data exported from
+This note gives examples how to encode the data exported from
 Cumulus in a way that enables preservation and discovery systems to
 deduce what they can or cannot do when it comes to presentation and
 licensing.
@@ -30,7 +30,9 @@ The Blocking is related to  type="restriction on access"
 Special conditions should be encoded as  type="use and reproduction"
 
 ```
-<accessCondition type="use and reproduction">In Copyright</accessCondition>
+<accessCondition type="use and reproduction">
+    In Copyright
+</accessCondition>
 ```
 
 I haven't studied "Restriction" and "Use" vocabularies but I just
@@ -50,7 +52,9 @@ See University of California's [solution](https://cdlib.org/groups/rights-manage
   * [copyright-md.xsd](copyright-md.xsd). Note [dk.xsd](dk.xsd) (W3 XML Schema wants one module per name space).
   
 
-This is adapted [from an example](https://www.loc.gov/standards/mods/userguide/accesscondition.html#examples) I found on library of congress
+This is adapted [from an
+example](https://www.loc.gov/standards/mods/userguide/accesscondition.html#examples)
+I found on library of congress
   
 
 ```
@@ -129,7 +133,10 @@ The creator, Clara, died at 1960.
 This is Anno Domino 2022
 Since  this_year - created = 62 is less than 75 it is not OK 
 
-When we don't known the year when the creator died, we could reason as follows: The portrait was made 1920  this_year - created = 2022 - 1920 = 102, which isn't safe. Clara could have survived long enough for someone alive to hold the copyright.
+When we don't known the year when the creator died, we could reason as
+follows: The portrait was made 1920 this_year - created = 2022 - 1920
+= 102, which isn't safe. Clara could have survived long enough for
+someone alive to hold the copyright.
 
 ### 2030
 
@@ -137,7 +144,10 @@ The creator, Clara, died at 1960.
 This is Anno Domino 2030
 Since  this_year - created = 70 is less than 75 it is not OK 
 
-When we don't known the year when the creator died, we could reason as follows: The portrait was made 1920  this_year - created = 2030 - 1920 = 110, which isn't safe. Clara could have survived long enough for someone alive to hold the copyright
+When we don't known the year when the creator died, we could reason as
+follows: The portrait was made 1920 this_year - created = 2030 - 1920
+= 110, which isn't safe. Clara could have survived long enough for
+someone alive to hold the copyright
 
 ### 2050
 
