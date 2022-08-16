@@ -2,6 +2,8 @@ default namespace = "http://www.cdlib.org/inside/diglib/copyrightMD"
 namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
 namespace dk = "http://id.kb.dk/dk-corporate-creator"
 namespace rng = "http://relaxng.org/ns/structure/1.0"
+namespace xs = "http://www.w3.org/2001/XMLSchema"
+namespace xsi = "http://www.w3.org/2001/XMLSchema-instance"
 
 a:documentation [
   "\x{a}" ~
@@ -133,6 +135,7 @@ starting_copyright =
   ##         subelements.
   ##       
   element copyright {
+    attribute xsi:schemaLocation { xsd:string },
     (
      ## 
      ##                 Wrapper element for publication information regarding the

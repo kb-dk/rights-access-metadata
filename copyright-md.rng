@@ -4,6 +4,8 @@
              xmlns="http://www.cdlib.org/inside/diglib/copyrightMD"
              xmlns:dk="http://id.kb.dk/dk-corporate-creator"
              ns="http://www.cdlib.org/inside/diglib/copyrightMD"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   
   <a:documentation>
@@ -131,9 +133,9 @@
         resource. Data values must be encoded either in attributes or
         subelements.
       </a:documentation>
-      <rng:attribute name="xsi:schemaLocation">
+      <!-- rng:attribute name="xsi:schemaLocation">
         <rng:data type="string"/>
-      </rng:attribute>
+      </rng:attribute -->
       <rng:zeroOrMore>
         <rng:choice>
           <rng:optional>
