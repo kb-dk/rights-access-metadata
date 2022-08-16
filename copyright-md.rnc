@@ -135,7 +135,9 @@ starting_copyright =
   ##         subelements.
   ##       
   element copyright {
-    attribute xsi:schemaLocation { xsd:string },
+    # rng:attribute name="xsi:schemaLocation">
+    #   <rng:data type="string"/>
+    # </rng:attribute
     (
      ## 
      ##                 Wrapper element for publication information regarding the
