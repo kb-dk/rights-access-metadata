@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<copyright xmlns="http://www.cdlib.org/inside/diglib/copyrightMD"
+<cdl:copyright xmlns:cdl="http://www.cdlib.org/inside/diglib/copyrightMD"
            xmlns:dk="http://id.kb.dk/dk-corporate-creator"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.cdlib.org/inside/diglib/copyrightMD https://raw.githubusercontent.com/kb-dk/rights-access-metadata/master/copyright-md.xsd"
            copyright.status="copyrighted"
            publication.status="unknown">
 
@@ -15,33 +17,34 @@
        unknown
   -->
   
-  <creation>
-    <year.creation year.type="approximate">1920</year.creation>
-    <country.creation iso.code="dk">Danmark</country.creation>
-  </creation>
-  <creator>
-    <dk:creator.corporate>
-      <name>Ugens nyheder</name>
-      <year.started>1910</year.started>
-      <year.ended>1920</year.ended>
+  <cdl:creation>
+    <cdl:year.creation year.type="approximate">1920</cdl:year.creation>
+    <cdl:country.creation iso.code="dk">Danmark</cdl:country.creation>
+  </cdl:creation>
+  <cdl:creator>
+    <dk:creator.corporate   xsi:schemaLocation="http://id.kb.dk/dk-corporate-creator https://raw.githubusercontent.com/kb-dk/rights-access-metadata/master/dk.xsd"
+>
+      <cdl:name>Ugens nyheder</cdl:name>
+      <cdl:year.started>1910</cdl:year.started>
+      <cdl:year.ended>1920</cdl:year.ended>
     </dk:creator.corporate>
-  </creator>
-  <creator>
-    <creator.person>
-      <name>Petersen, Clara</name>
-      <year.birth>1890</year.birth>
-      <year.death>1960</year.death>
-    </creator.person>
-  </creator>
-  <rights.holder>
-    <name>Estate of Petersen, Clara</name>
-    <contact> user@domain or whatever  </contact>
-  </rights.holder>
+  </cdl:creator>
+  <cdl:creator>
+    <cdl:creator.person>
+      <cdl:name>Petersen, Clara</cdl:name>
+      <cdl:year.birth>1890</cdl:year.birth>
+      <cdl:year.death>1960</cdl:year.death>
+    </cdl:creator.person>
+  </cdl:creator>
+  <cdl:rights.holder>
+    <cdl:name>Estate of Petersen, Clara</cdl:name>
+    <cdl:contact> user@domain or whatever  </cdl:contact>
+  </cdl:rights.holder>
 
 
-  <general.note>Transmission or reproduction of materials protected by
+  <cdl:general.note>Transmission or reproduction of materials protected by
   copyright beyond that allowed by fair use requires the written
   permission of the copyright owners.
-  bla bla bla bla bla bla bla</general.note>
+  bla bla bla bla bla bla bla</cdl:general.note>
 
-</copyright>
+</cdl:copyright>
